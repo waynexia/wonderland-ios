@@ -12,6 +12,10 @@
 		882854352371512600AD934A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 882854332371512600AD934A /* Main.storyboard */; };
 		882854372371512E00AD934A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 882854362371512E00AD934A /* Assets.xcassets */; };
 		8828543A2371512E00AD934A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 882854382371512E00AD934A /* LaunchScreen.storyboard */; };
+		882854422371593E00AD934A /* ArchiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882854412371593E00AD934A /* ArchiveVC.swift */; };
+		882854442371599000AD934A /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882854432371599000AD934A /* Tag.swift */; };
+		882854462371681300AD934A /* MonthCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882854452371681300AD934A /* MonthCatalog.swift */; };
+		8828545223716C4900AD934A /* DateArchiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8828545123716C4900AD934A /* DateArchiveVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		882854362371512E00AD934A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		882854392371512E00AD934A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8828543B2371512E00AD934A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		882854412371593E00AD934A /* ArchiveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveVC.swift; sourceTree = "<group>"; };
+		882854432371599000AD934A /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		882854452371681300AD934A /* MonthCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCatalog.swift; sourceTree = "<group>"; };
+		8828545123716C4900AD934A /* DateArchiveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateArchiveVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +65,13 @@
 				8828542F2371512600AD934A /* AppDelegate.swift */,
 				882854312371512600AD934A /* ViewController.swift */,
 				882854332371512600AD934A /* Main.storyboard */,
+				882854452371681300AD934A /* MonthCatalog.swift */,
 				882854362371512E00AD934A /* Assets.xcassets */,
 				882854382371512E00AD934A /* LaunchScreen.storyboard */,
 				8828543B2371512E00AD934A /* Info.plist */,
+				882854412371593E00AD934A /* ArchiveVC.swift */,
+				882854432371599000AD934A /* Tag.swift */,
+				8828545123716C4900AD934A /* DateArchiveVC.swift */,
 			);
 			path = wonderland;
 			sourceTree = "<group>";
@@ -135,8 +147,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				882854442371599000AD934A /* Tag.swift in Sources */,
 				882854322371512600AD934A /* ViewController.swift in Sources */,
 				882854302371512600AD934A /* AppDelegate.swift in Sources */,
+				882854422371593E00AD934A /* ArchiveVC.swift in Sources */,
+				882854462371681300AD934A /* MonthCatalog.swift in Sources */,
+				8828545223716C4900AD934A /* DateArchiveVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
