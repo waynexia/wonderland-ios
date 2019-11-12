@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18CFDFF8237A928E0032A3AA /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CFDFF7237A928E0032A3AA /* DetailVC.swift */; };
 		18A3D3F4237A9C9000837963 /* article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A3D3F3237A9C9000837963 /* article.swift */; };
 		18A3D3F6237A9EC400837963 /* img in Resources */ = {isa = PBXBuildFile; fileRef = 18A3D3F5237A9EC400837963 /* img */; };
 		18A3D3F8237AA46C00837963 /* IndexTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A3D3F7237AA46C00837963 /* IndexTableViewController.swift */; };
+		18CFDFF8237A928E0032A3AA /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CFDFF7237A928E0032A3AA /* DetailVC.swift */; };
+		18CFDFFA237AB07E0032A3AA /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CFDFF9237AB07E0032A3AA /* Config.swift */; };
 		26632161F5DB9FAA07EFF046 /* Pods_wonderland.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7173BE342513DB321DFBD71D /* Pods_wonderland.framework */; };
 		882854302371512600AD934A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8828542F2371512600AD934A /* AppDelegate.swift */; };
 		882854322371512600AD934A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882854312371512600AD934A /* ViewController.swift */; };
@@ -25,10 +26,11 @@
 
 /* Begin PBXFileReference section */
 		17EA959D273CE288D0A34015 /* Pods-wonderland.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wonderland.debug.xcconfig"; path = "Target Support Files/Pods-wonderland/Pods-wonderland.debug.xcconfig"; sourceTree = "<group>"; };
-		18CFDFF7237A928E0032A3AA /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		18A3D3F3237A9C9000837963 /* article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = article.swift; sourceTree = "<group>"; };
 		18A3D3F5237A9EC400837963 /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
 		18A3D3F7237AA46C00837963 /* IndexTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexTableViewController.swift; sourceTree = "<group>"; };
+		18CFDFF7237A928E0032A3AA /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		18CFDFF9237AB07E0032A3AA /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		7173BE342513DB321DFBD71D /* Pods_wonderland.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wonderland.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8828542C2371512600AD934A /* wonderland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wonderland.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8828542F2371512600AD934A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				882854382371512E00AD934A /* LaunchScreen.storyboard */,
 				8828543B2371512E00AD934A /* Info.plist */,
 				882854412371593E00AD934A /* ArchiveVC.swift */,
+				18CFDFF9237AB07E0032A3AA /* Config.swift */,
 				882854432371599000AD934A /* Tag.swift */,
 				8828545123716C4900AD934A /* DateArchiveVC.swift */,
 				18CFDFF7237A928E0032A3AA /* DetailVC.swift */,
@@ -233,6 +236,7 @@
 				18A3D3F4237A9C9000837963 /* article.swift in Sources */,
 				882854322371512600AD934A /* ViewController.swift in Sources */,
 				882854302371512600AD934A /* AppDelegate.swift in Sources */,
+				18CFDFFA237AB07E0032A3AA /* Config.swift in Sources */,
 				882854422371593E00AD934A /* ArchiveVC.swift in Sources */,
 				882854462371681300AD934A /* MonthCatalog.swift in Sources */,
 				8828545223716C4900AD934A /* DateArchiveVC.swift in Sources */,

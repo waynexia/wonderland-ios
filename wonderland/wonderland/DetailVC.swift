@@ -12,20 +12,28 @@ import MarkdownKit
 class DetailVC: UIViewController {
 
     @IBOutlet weak var detailText: UITextView!
-    var archiveURL: URL?
+    var articleIndex: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         let markdownParser = MarkdownParser(font: UIFont.systemFont(ofSize: 20))
         let markdown = self.loadDetail()
-        self.detailText.attributedText = markdownParser.parse(markdown ?? "**URL** is nil")
+        self.detailText.attributedText = markdownParser.parse(markdown ?? "")
     }
     
     func loadDetail() -> String?{
-        if(self.archiveURL != nil){
-            return NSKeyedUnarchiver.unarchiveObject(withFile: self.archiveURL!.path) as? String
+        if(self.articleIndex != nil){
+            var articlesList = NSKeyedUnarchiver.unarchiveObject(withFile: ArticlesURL.path) as? [String]
+            if(articlesList != nil){
+                return articlesList?[self.articleIndex!]
+            }
+            else{
+                print("userLocalArticlesFile is nil")
+                return nil
+            }
         }
         else{
+            print("articleIndex is nil")
             return nil
         }
     }
