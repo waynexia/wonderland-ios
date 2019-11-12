@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18CFDFF8237A928E0032A3AA /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CFDFF7237A928E0032A3AA /* DetailVC.swift */; };
 		26632161F5DB9FAA07EFF046 /* Pods_wonderland.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7173BE342513DB321DFBD71D /* Pods_wonderland.framework */; };
 		882854302371512600AD934A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8828542F2371512600AD934A /* AppDelegate.swift */; };
 		882854322371512600AD934A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882854312371512600AD934A /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		17EA959D273CE288D0A34015 /* Pods-wonderland.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wonderland.debug.xcconfig"; path = "Target Support Files/Pods-wonderland/Pods-wonderland.debug.xcconfig"; sourceTree = "<group>"; };
+		18CFDFF7237A928E0032A3AA /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		7173BE342513DB321DFBD71D /* Pods_wonderland.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wonderland.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8828542C2371512600AD934A /* wonderland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wonderland.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8828542F2371512600AD934A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				882854412371593E00AD934A /* ArchiveVC.swift */,
 				882854432371599000AD934A /* Tag.swift */,
 				8828545123716C4900AD934A /* DateArchiveVC.swift */,
+				18CFDFF7237A928E0032A3AA /* DetailVC.swift */,
 			);
 			path = wonderland;
 			sourceTree = "<group>";
@@ -97,7 +100,6 @@
 				17EA959D273CE288D0A34015 /* Pods-wonderland.debug.xcconfig */,
 				E3A259F5B7EFA2F17B7087F8 /* Pods-wonderland.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -222,6 +224,7 @@
 				882854422371593E00AD934A /* ArchiveVC.swift in Sources */,
 				882854462371681300AD934A /* MonthCatalog.swift in Sources */,
 				8828545223716C4900AD934A /* DateArchiveVC.swift in Sources */,
+				18CFDFF8237A928E0032A3AA /* DetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

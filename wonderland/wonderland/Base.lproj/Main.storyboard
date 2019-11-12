@@ -99,20 +99,32 @@
             </objects>
             <point key="canvasLocation" x="1980" y="1015"/>
         </scene>
-        <!--View Controller-->
+        <!--DetailVC-->
         <scene sceneID="QV4-lB-QIJ">
             <objects>
-                <viewController id="PSD-Ja-QLX" sceneMemberID="viewController">
+                <viewController id="PSD-Ja-QLX" customClass="DetailVC" customModule="wonderland" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="Detail" id="9Qd-e4-mQv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="B5w-sL-ye0">
+                                <rect key="frame" x="54" y="108" width="307" height="680"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="7Rh-zj-6kY"/>
                     </view>
+                    <connections>
+                        <outlet property="detailText" destination="B5w-sL-ye0" id="Flw-Cg-U9p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBS-s0-uzM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="961" y="1907"/>
+            <point key="canvasLocation" x="960.86956521739137" y="1906.4732142857142"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fea-sL-YfQ">
