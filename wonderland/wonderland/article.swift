@@ -22,7 +22,6 @@ class ArticleMeta: NSObject, NSCoding {
     init(title: String, abstract: String, firstImage: UIImage?, tags: Array<String>, categories: Array<String>, createdTime: NSDate, contentIndex: UInt32) {
         self.title = title
         self.abstract = abstract
-        self.mainBody = mainBody
         self.firstImage = firstImage
         if (self.firstImage == nil) {
             self.firstImage = UIImage(named: "./img/default.jpg")
@@ -35,7 +34,6 @@ class ArticleMeta: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(title, forKey: "titleKey")
         aCoder.encode(abstract, forKey: "abstractKey")
-        aCoder.encode(mainBody, forKey: "mainBodyKey")
         aCoder.encode(firstImage, forKey: "firstImageKey")
         aCoder.encode(tags, forKey: "tagsKey")
         aCoder.encode(createdTime, forKey: "createdTimeKey")
@@ -43,13 +41,12 @@ class ArticleMeta: NSObject, NSCoding {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        title = aDecoder.decodeObject(forKey: "titleKey")!
-        abstract = aDecoder.decodeObject(forKey: "abstractKey")!
-        mainBody = aDecoder.decodeObject(forKey: "mainBodyKey")!
+        title = aDecoder.decodeObject(forKey: "titleKey") as! String
+        abstract = aDecoder.decodeObject(forKey: "abstractKey") as! String
         firstImage = aDecoder.decodeObject(forKey: "firstImageKey") as? UIImage
-        tags = aDecoder.decodeObject(forKey: "tagsKey")!
-        createdTime = (aDecoder.decodeObject(forKey: "createdTimeKey")!)!
-        contentIndex = (aDecoder.decodeObject(forKey: "contentIndex")!)
+        tags = aDecoder.decodeObject(forKey: "tagsKey") as! Array<String>
+        createdTime = aDecoder.decodeObject(forKey: "createdTimeKey") as! NSDate
+        contentIndex = aDecoder.decodeObject(forKey: "contentIndex") as! UInt32
     }
 }
 
@@ -60,7 +57,7 @@ class Article: NSObject, NSCoding{
         self.content = content
     }
     
-    init(){
+    override init(){
         self.content = ""
     }
     
@@ -69,6 +66,6 @@ class Article: NSObject, NSCoding{
     }
     
     required init?(coder aDecoder: NSCoder){
-        content = aDecoder.decodeObject(forKey:"content")
+        content = aDecoder.decodeObject(forKey:"content") as! String
     }
 }
