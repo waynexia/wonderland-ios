@@ -101,6 +101,19 @@ class ArchivedListVC: UITableViewController {
         return true
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        
+        if let detailVC = segue.destination as? DetailVC {
+            if let selectedCell4detail = sender as? UITableViewCell {
+                let indexPath = tableView.indexPath(for: selectedCell4detail)
+                let selectedArticleItem = articleList[(indexPath! as NSIndexPath).row]
+                detailVC.articleMeta = selectedArticleItem
+            }
+        }
+    }
 
 }
 
