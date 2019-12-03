@@ -13,6 +13,7 @@ class IndexTableViewCell: UITableViewCell {
     @IBOutlet weak var firstImage: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var abstract: UILabel!
+    @IBOutlet weak var createdTime: UILabel!
     
     
     override func awakeFromNib() {

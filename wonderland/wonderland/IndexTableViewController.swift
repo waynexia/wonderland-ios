@@ -14,6 +14,15 @@ class IndexTableViewController: UITableViewController {
     
     var articleList: [ArticleMeta] = [ArticleMeta]()
     
+    func loadArticleList() -> [ArticleMeta]? {
+        return (NSKeyedUnarchiver.unarchiveObject(withFile: ArticleMetaURL.path) as? [ArticleMeta])
+    }
+    
+    func initArticleList() {
+        let article = ArticleMeta(title: "开始", abstract: "写新的博客！这是一篇使用教程", firstImage: nil, tags: [], createdTime: NSDate(), contentIndex: 2147483647)
+        articleList.append(article)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = 120
@@ -24,9 +33,12 @@ class IndexTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        
-        articleList.append(ArticleMeta(title: "Say Hello", abstract: "Say Hello To Tomorrow", firstImage: nil, tags: ["say", "hello"], createdTime: NSDate(), contentIndex: 0))
-        articleList.append(ArticleMeta(title: "Say Goodbye", abstract: "Say Goodbye To Yesterday", firstImage: nil, tags: ["say", "goodbye"], createdTime: NSDate(), contentIndex: 0))
+        if let articleListFromFile = loadArticleList() {
+            articleList = articleListFromFile
+        }
+        else {
+            initArticleList()
+        }
     }
     
     // MARK: - Table view data source
@@ -43,9 +55,21 @@ class IndexTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as? IndexTableViewCell
+        
         cell?.title?.text = articleList[indexPath.row].title
-        cell?.abstract?.text = articleList[indexPath.row].abstract
+        
+        let cellAbstract = articleList[indexPath.row].abstract
+        if cellAbstract.count < 10 {
+            cell?.abstract?.text = cellAbstract
+        } else {
+            cell?.abstract?.text = String(cellAbstract[..<cellAbstract.index(cellAbstract.startIndex, offsetBy: 10)]) + " ......"
+        }
+        
         cell?.firstImage?.image = articleList[indexPath.row].firstImage
+        
+        let cellCreatedTime = articleList[indexPath.row].createdTime.description
+        cell?.createdTime?.text = String(cellCreatedTime[..<cellCreatedTime.index(cellCreatedTime.startIndex, offsetBy: 20)])
+        
         return cell!
     }
     

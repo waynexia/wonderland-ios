@@ -34,29 +34,40 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Erl-Ni-TQy">
-                                            <rect key="frame" x="129" y="30" width="60" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <rect key="frame" x="119" y="19" width="60" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <size key="shadowOffset" width="1" height="-1"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="createdTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hr3-JP-ZYj">
+                                            <rect key="frame" x="297" y="78" width="97" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="abstract" textAlignment="natural" lineBreakMode="clip" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbb-zt-LQZ">
-                                            <rect key="frame" x="129" y="68" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <rect key="frame" x="119" y="57" width="71" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Erl-Ni-TQy" firstAttribute="leading" secondItem="JVu-XG-Vyy" secondAttribute="trailing" constant="20" id="IXW-7y-aeZ"/>
                                         <constraint firstItem="JVu-XG-Vyy" firstAttribute="leading" secondItem="kM9-cE-buK" secondAttribute="leading" constant="20" id="QAN-CN-b0L"/>
-                                        <constraint firstItem="Fbb-zt-LQZ" firstAttribute="top" secondItem="Erl-Ni-TQy" secondAttribute="bottom" constant="10" id="WSP-pq-GBC"/>
+                                        <constraint firstItem="Fbb-zt-LQZ" firstAttribute="top" secondItem="Erl-Ni-TQy" secondAttribute="bottom" constant="10" id="ZIu-7m-5Zy"/>
                                         <constraint firstItem="Fbb-zt-LQZ" firstAttribute="leading" secondItem="JVu-XG-Vyy" secondAttribute="trailing" constant="20" id="eIu-mN-Q35"/>
                                         <constraint firstItem="JVu-XG-Vyy" firstAttribute="centerY" secondItem="kM9-cE-buK" secondAttribute="centerY" id="eq5-Ov-ecJ"/>
+                                        <constraint firstAttribute="trailing" secondItem="Hr3-JP-ZYj" secondAttribute="trailing" constant="20" id="jkx-p5-pqh"/>
+                                        <constraint firstAttribute="bottom" secondItem="Hr3-JP-ZYj" secondAttribute="bottom" constant="20" id="vem-xk-Ghp"/>
                                         <constraint firstItem="Erl-Ni-TQy" firstAttribute="top" secondItem="kM9-cE-buK" secondAttribute="top" constant="20" id="xbV-wY-Yqy"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="abstract" destination="Fbb-zt-LQZ" id="3h7-cU-dNp"/>
+                                    <outlet property="createdTime" destination="Hr3-JP-ZYj" id="PdO-dY-P4n"/>
                                     <outlet property="firstImage" destination="JVu-XG-Vyy" id="A3w-ma-gWX"/>
                                     <outlet property="title" destination="Erl-Ni-TQy" id="mbw-SN-4ci"/>
                                 </connections>
