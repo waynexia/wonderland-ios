@@ -74,11 +74,14 @@ class ArchiveVC: UITableViewController {
         // Configure the cell
         if(is_showing_tags){
             cell.detail_label?.text = tags[indexPath.row].tag_name
-            cell.count_label?.text = String(tags[indexPath.row].tag_count)
+            cell.count_label?.text = String(tags[indexPath.row].tag_count) + "     "
         } else {
             cell.detail_label?.text = months[indexPath.row].get_time()
             cell.count_label?.text = months[indexPath.row].get_count()
         }
+        cell.count_label.layer.cornerRadius = 10
+        cell.count_label.layer.masksToBounds = true
+        cell.count_label.layer.borderColor = UIColor.orange.cgColor;    cell.count_label.layer.borderWidth = 1
         return cell
     }
     
