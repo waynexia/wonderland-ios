@@ -16,8 +16,6 @@ class ArticleMeta: NSObject, NSCoding {
     var tags: Array<String>
     var createdTime: NSDate
     var contentIndex: UInt32
-    static let DocumentDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ArchiveURL = DocumentDirectory.appendingPathComponent("acticles")
     
     init(title: String, abstract: String, firstImage: UIImage?, tags: Array<String>, createdTime: NSDate, contentIndex: UInt32) {
         self.title = title
