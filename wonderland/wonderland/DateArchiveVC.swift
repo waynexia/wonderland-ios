@@ -12,16 +12,16 @@ class DateArchiveVC: UITableViewController {
     // month field
     var months : [MonthCatalog] = [MonthCatalog]()
     
-    func init_months(){
-        months.append(MonthCatalog(month: 1, year: 2017, count: 3))
-        months.append(MonthCatalog(month: 5, year: 2018, count: 4))
-        months.append(MonthCatalog(month: 9, year: 2019, count: 1))
-    }
+//    func init_months(){
+//        months.append(MonthCatalog(month: 1, year: 2017, count: 3))
+//        months.append(MonthCatalog(month: 5, year: 2018, count: 4))
+//        months.append(MonthCatalog(month: 9, year: 2019, count: 1))
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        init_months()
+//        init_months()
 
         // Do any additional setup after loading the view.
     }
@@ -38,8 +38,7 @@ class DateArchiveVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "month_cell", for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "month_cell", for: indexPath)        
         // Configure the cell...
         cell.textLabel?.text = months[indexPath.row].get_time()
         cell.detailTextLabel?.text = months[indexPath.row].get_count()

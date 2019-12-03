@@ -22,7 +22,7 @@ struct MonthCatalog{
         if self.month<0 || self.month>12{
             return "Unknow"
         }
-        return Months[Int(self.month)] + " " + String(self.year)
+        return Months[Int(self.month - 1)] + " " + String(self.year)
     }
     
     func get_count() -> String{
