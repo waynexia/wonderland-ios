@@ -19,7 +19,7 @@ class IndexTableViewController: UITableViewController {
     }
     
     func initArticleList() {
-        let article = ArticleMeta(title: "开始", abstract: "写新的博客！这是一篇使用教程", firstImage: nil, tags: [], createdTime: NSDate(), contentIndex: 2147483647)
+        let article = ArticleMeta(title: "开始", abstract: "写新的博客！这是一篇使用教程", firstImage: nil, tags: ["tag1","tag2"], createdTime: NSDate(), contentIndex: 2147483647)
         articleList.append(article)
     }
     
