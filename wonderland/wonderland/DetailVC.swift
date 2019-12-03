@@ -26,7 +26,8 @@ class DetailVC: UIViewController {
             // title
             self.detailTitle.text = self.articleMeta!.title
             // create time
-            self.detailCreateDate.text = self.articleMeta!.createdTime.description
+            let cellCreatedTime = articleMeta!.createdTime.description
+            self.detailCreateDate.text = String(cellCreatedTime[..<cellCreatedTime.index(cellCreatedTime.startIndex, offsetBy: 20)])
             // tags
             var tagsText = ""
             for index in 0..<self.articleMeta!.tags.count{
