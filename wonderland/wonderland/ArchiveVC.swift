@@ -17,11 +17,10 @@ class ArchiveVC: UITableViewController {
     @IBOutlet weak var switch_button: UIBarButtonItem!
 
     @IBAction func switch_onclick(_ sender : Any){
-        print("switch button is clicked")
         if self.is_showing_tags{
-            self.switch_button.title = "In Time"
-        } else {
             self.switch_button.title = "In Tag"
+        } else {
+            self.switch_button.title = "In Time"
         }
         self.is_showing_tags = !self.is_showing_tags
         self.tableView.reloadData()
@@ -30,8 +29,6 @@ class ArchiveVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-//        print(self.switch_button.title)
     }
     
     // call this function before jumping to this view

@@ -23,8 +23,6 @@
 		882854422371593E00AD934A /* ArchiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882854412371593E00AD934A /* ArchiveVC.swift */; };
 		882854442371599000AD934A /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882854432371599000AD934A /* Tag.swift */; };
 		882854462371681300AD934A /* MonthCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882854452371681300AD934A /* MonthCatalog.swift */; };
-		8828545223716C4900AD934A /* DateArchiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8828545123716C4900AD934A /* DateArchiveVC.swift */; };
-		889E74A8238D14EF0093C5BC /* TagArchiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889E74A7238D14EF0093C5BC /* TagArchiveVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,8 +45,6 @@
 		882854412371593E00AD934A /* ArchiveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveVC.swift; sourceTree = "<group>"; };
 		882854432371599000AD934A /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		882854452371681300AD934A /* MonthCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCatalog.swift; sourceTree = "<group>"; };
-		8828545123716C4900AD934A /* DateArchiveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateArchiveVC.swift; sourceTree = "<group>"; };
-		889E74A7238D14EF0093C5BC /* TagArchiveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagArchiveVC.swift; sourceTree = "<group>"; };
 		E3A259F5B7EFA2F17B7087F8 /* Pods-wonderland.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wonderland.release.xcconfig"; path = "Target Support Files/Pods-wonderland/Pods-wonderland.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,8 +103,6 @@
 				18CFDFF9237AB07E0032A3AA /* Config.swift */,
 				882854432371599000AD934A /* Tag.swift */,
 				880D7836237AAD03003B533B /* ContentEntry.swift */,
-				8828545123716C4900AD934A /* DateArchiveVC.swift */,
-				889E74A7238D14EF0093C5BC /* TagArchiveVC.swift */,
 				18CFDFF7237A928E0032A3AA /* DetailVC.swift */,
 				18A3D3F7237AA46C00837963 /* IndexTableViewController.swift */,
 			);
@@ -248,10 +242,8 @@
 				882854322371512600AD934A /* ViewController.swift in Sources */,
 				882854302371512600AD934A /* AppDelegate.swift in Sources */,
 				18CFDFFA237AB07E0032A3AA /* Config.swift in Sources */,
-				889E74A8238D14EF0093C5BC /* TagArchiveVC.swift in Sources */,
 				882854422371593E00AD934A /* ArchiveVC.swift in Sources */,
 				882854462371681300AD934A /* MonthCatalog.swift in Sources */,
-				8828545223716C4900AD934A /* DateArchiveVC.swift in Sources */,
 				18CFDFF8237A928E0032A3AA /* DetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
