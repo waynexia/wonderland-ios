@@ -188,11 +188,13 @@
                                         <constraint firstItem="Erl-Ni-TQy" firstAttribute="top" secondItem="kM9-cE-buK" secondAttribute="top" constant="20" id="xbV-wY-Yqy"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="abstract" destination="Fbb-zt-LQZ" id="3h7-cU-dNp"/>
                                     <outlet property="createdTime" destination="Hr3-JP-ZYj" id="PdO-dY-P4n"/>
                                     <outlet property="firstImage" destination="JVu-XG-Vyy" id="A3w-ma-gWX"/>
                                     <outlet property="title" destination="Erl-Ni-TQy" id="mbw-SN-4ci"/>
+                                    <outletCollection property="gestureRecognizers" destination="C5I-0j-IRL" appends="YES" id="Pto-7a-Tb4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -218,6 +220,11 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TqJ-RE-Da1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="1" minimumPressDuration="0.5" id="C5I-0j-IRL">
+                    <connections>
+                        <action selector="copy_titleWithSender:" destination="DNS-jm-tx6" id="Ma2-Tr-uaT"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="605.79710144927537" y="68.973214285714278"/>
         </scene>
@@ -333,11 +340,13 @@
                                         <constraint firstItem="NDB-sU-rQH" firstAttribute="leading" secondItem="mWG-co-ila" secondAttribute="trailing" constant="20" id="r4d-0V-sJw"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="abstract" destination="NDB-sU-rQH" id="v5X-ah-Zf4"/>
                                     <outlet property="createdTime" destination="hFf-By-ydW" id="bCw-At-koL"/>
                                     <outlet property="firstImage" destination="mWG-co-ila" id="Kzf-QU-0DC"/>
                                     <outlet property="title" destination="Jxk-Bx-sKm" id="FXW-aT-zCF"/>
+                                    <outletCollection property="gestureRecognizers" destination="56F-Yl-BBF" appends="YES" id="kbe-QM-kY5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -348,6 +357,11 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2p-Al-huj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="56F-Yl-BBF">
+                    <connections>
+                        <action selector="copy_titleWithSender:" destination="TFE-5b-y2j" id="ISW-OT-H7g"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2853.6231884057975" y="541.74107142857144"/>
         </scene>

@@ -11,6 +11,15 @@ import UIKit
 class ArchivedListVC: UITableViewController {
     
     var articleList: [ArticleMeta] = [ArticleMeta]()
+    
+    @IBAction func copy_title(sender: UILongPressGestureRecognizer){
+        print("recognized")
+        let alertController = UIAlertController(title:"文章标题已复制到剪切板",message: nil, preferredStyle: .alert)
+        self.present(alertController,animated: true,completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1){
+            self.presentedViewController?.dismiss(animated: true, completion: nil)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
