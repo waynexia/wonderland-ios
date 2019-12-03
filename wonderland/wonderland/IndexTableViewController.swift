@@ -115,6 +115,14 @@ class IndexTableViewController: UITableViewController {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
         
+        if let detailVC = segue.destination as? DetailVC {
+            if let selectedCell4detail = sender as? UITableViewCell {
+                let indexPath = tableView.indexPath(for: selectedCell4detail)
+                let selectedArticleItem = articleList[(indexPath! as NSIndexPath).row]
+                detailVC.articleMeta = selectedArticleItem
+            }
+        }
+        
         if let archiveVC = segue.destination as? ArchiveVC{
             archiveVC.setup(metas: articleList)
         }
