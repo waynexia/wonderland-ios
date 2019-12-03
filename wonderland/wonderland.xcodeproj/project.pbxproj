@@ -23,6 +23,7 @@
 		882854422371593E00AD934A /* ArchiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882854412371593E00AD934A /* ArchiveVC.swift */; };
 		882854442371599000AD934A /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882854432371599000AD934A /* Tag.swift */; };
 		882854462371681300AD934A /* MonthCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882854452371681300AD934A /* MonthCatalog.swift */; };
+		883753A0239649CF002DBF75 /* ArchivedListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8837539F239649CF002DBF75 /* ArchivedListVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		882854412371593E00AD934A /* ArchiveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveVC.swift; sourceTree = "<group>"; };
 		882854432371599000AD934A /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		882854452371681300AD934A /* MonthCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCatalog.swift; sourceTree = "<group>"; };
+		8837539F239649CF002DBF75 /* ArchivedListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivedListVC.swift; sourceTree = "<group>"; };
 		E3A259F5B7EFA2F17B7087F8 /* Pods-wonderland.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wonderland.release.xcconfig"; path = "Target Support Files/Pods-wonderland/Pods-wonderland.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,7 @@
 				8828542F2371512600AD934A /* AppDelegate.swift */,
 				882854312371512600AD934A /* ViewController.swift */,
 				882854332371512600AD934A /* Main.storyboard */,
+				8837539F239649CF002DBF75 /* ArchivedListVC.swift */,
 				18A3D3F9237AADA000837963 /* IndexTableViewCell.swift */,
 				882854452371681300AD934A /* MonthCatalog.swift */,
 				882854362371512E00AD934A /* Assets.xcassets */,
@@ -240,6 +243,7 @@
 				18A3D3F4237A9C9000837963 /* Article.swift in Sources */,
 				880D7837237AAD03003B533B /* ContentEntry.swift in Sources */,
 				882854322371512600AD934A /* ViewController.swift in Sources */,
+				883753A0239649CF002DBF75 /* ArchivedListVC.swift in Sources */,
 				882854302371512600AD934A /* AppDelegate.swift in Sources */,
 				18CFDFFA237AB07E0032A3AA /* Config.swift in Sources */,
 				882854422371593E00AD934A /* ArchiveVC.swift in Sources */,

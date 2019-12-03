@@ -12,6 +12,7 @@ class ArchiveVC: UITableViewController {
     // catalog fields
     var months : [MonthCatalog] = [MonthCatalog]()
     var tags: [Tag] = [Tag]()
+    var metas : [ArticleMeta] = [ArticleMeta]()
     var is_showing_tags : Bool = false
     
     @IBOutlet weak var switch_button: UIBarButtonItem!
@@ -35,6 +36,7 @@ class ArchiveVC: UITableViewController {
     func setup(metas: [ArticleMeta]){
         self.months = calc_month(metas: metas)
         self.tags = calc_tag(metas: metas)
+        self.metas = metas
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -64,22 +66,36 @@ class ArchiveVC: UITableViewController {
         return cell
     }
     
-    /*
-    // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-//        if let dateVC = segue.destination as? DateArchiveVC{
-//            print("jump to date catalog")
-//            dateVC.months = self.months!
-//        } else if let tagVC = segue.destination as? TagArchiveVC{
-//            print("jump to tag catalog")
-//            tagVC.tags = self.tags!
-//        }
+        
+        if let archivedListVC = segue.destination as? ArchivedListVC{
+            var select_metas : [ArticleMeta] = [ArticleMeta]()
+            // construct selected article list
+            if let selectedCell = sender as? UITableViewCell{
+                let indexPath = tableView.indexPath(for: selectedCell)!
+                if is_showing_tags{
+                    let identifier = tags[(indexPath as NSIndexPath).row]
+                    for item in self.metas{
+                        if item.tags.contains(identifier.tag_name){
+                            select_metas.append(item)
+                        }
+                    }
+                } else {
+                    let id_year = months[(indexPath as NSIndexPath).row].year
+                    let id_month = UInt32(months[(indexPath as NSIndexPath).row].month)
+                    for item in self.metas{
+                        if (id_year,id_month) == from_NSDate(date: item.createdTime){
+                            select_metas.append(item)
+                        }
+                    }
+                }
+            }
+            archivedListVC.articleList = select_metas
+        }
     }
-    */
  
 }
 
