@@ -225,7 +225,7 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TqJ-RE-Da1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="1" minimumPressDuration="0.5" id="C5I-0j-IRL">
+                <pongPressGestureRecognizer cancelsTouchesInView="NO" allowableMovement="1" minimumPressDuration="0.5" id="C5I-0j-IRL">
                     <connections>
                         <action selector="copy_titleWithSender:" destination="DNS-jm-tx6" id="Ma2-Tr-uaT"/>
                     </connections>
@@ -370,7 +370,7 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2p-Al-huj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="56F-Yl-BBF">
+                <pongPressGestureRecognizer cancelsTouchesInView="NO" allowableMovement="10" minimumPressDuration="0.5" id="56F-Yl-BBF">
                     <connections>
                         <action selector="copy_titleWithSender:" destination="TFE-5b-y2j" id="ISW-OT-H7g"/>
                     </connections>
@@ -390,8 +390,12 @@
                                 <rect key="frame" x="54" y="177" width="307" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="RC5-UU-LB4" appends="YES" id="GDe-S4-oSb"/>
+                                </connections>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fak-a0-Uc3">
                                 <rect key="frame" x="54" y="95" width="307" height="52"/>
@@ -427,6 +431,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBS-s0-uzM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="RC5-UU-LB4">
+                    <connections>
+                        <action selector="adjust_font_sizeWithSender:" destination="PSD-Ja-QLX" id="Jy7-6E-kWs"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1854" y="804"/>
         </scene>
@@ -563,6 +572,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aRz-HT-bTL"/>
+        <segue reference="WeN-vw-4fC"/>
     </inferredMetricsTieBreakers>
 </document>
