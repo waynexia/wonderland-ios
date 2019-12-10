@@ -502,6 +502,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="发布文章"/>
+                                <connections>
+                                    <action selector="finishEditButton:" destination="nNC-wE-eQ0" eventType="touchUpInside" id="fmq-SS-FWF"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
