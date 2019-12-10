@@ -15,7 +15,7 @@
 
 import UIKit
 
-class SaveNoteVC: UIViewController {
+class SaveNoteVC: UIViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     // 上一个页面传来的数据
     var noteTitle: String?
     var noteContent: String?
@@ -24,6 +24,22 @@ class SaveNoteVC: UIViewController {
     // 本页面数据
     @IBOutlet weak var tags: UITextView!
     @IBOutlet weak var abstract: UITextView!
+    @IBOutlet weak var firstImg: UIImageView!
+    
+    @IBAction func clickImg(_ sender: Any) {
+        print("click")
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]){
+        let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        self.firstImg.image = selectedImage
+        
+        dismiss(animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +56,9 @@ class SaveNoteVC: UIViewController {
         
         if(self.defaultAbstract != nil){
             self.abstract.text = self.defaultAbstract
+        }
+        if(self.firstImg.image == nil){
+            self.firstImg.image = UIImage(named: "./img/default.jpg")
         }
     }
     

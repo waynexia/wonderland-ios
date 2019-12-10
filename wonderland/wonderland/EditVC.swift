@@ -16,6 +16,11 @@ class EditVC: UIViewController {
     @IBOutlet weak var previewButton: UIBarButtonItem!
     var content = ""
     
+    @IBAction func longPressAction(sender: UILongPressGestureRecognizer) {
+        if sender.state == UIGestureRecognizer.State.ended{
+            print("long press")
+        }
+    }
     @IBAction func previewClick(_ sender: Any) {
         if(previewButton.title == "Preview"){
             // 切换预览title为Edit
