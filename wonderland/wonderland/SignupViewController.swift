@@ -55,6 +55,9 @@ class SignupViewController: UIViewController {
         }
     }
     
+    @IBAction func back_to_signin(_ sender : Any){
+        self.dismiss(animated: true, completion: nil)
+    }
     
     var userList: [User] = [User]()
 

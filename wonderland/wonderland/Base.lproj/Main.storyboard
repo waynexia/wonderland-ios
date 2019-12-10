@@ -50,6 +50,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xIN-WX-Xvi">
+                                <rect key="frame" x="20" y="338" width="41" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="登陆"/>
+                                <connections>
+                                    <action selector="back_to_signin:" destination="Jed-7U-jSX" eventType="touchUpInside" id="J7b-td-EH2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -59,7 +67,9 @@
                             <constraint firstItem="dxj-VH-YQq" firstAttribute="top" secondItem="HQg-8k-eHQ" secondAttribute="bottom" constant="30" id="N4j-uJ-k1g"/>
                             <constraint firstItem="5CG-Wr-Q3A" firstAttribute="leading" secondItem="IUT-pK-XEC" secondAttribute="leading" constant="20" id="Pfx-M7-3ZP"/>
                             <constraint firstItem="HQg-8k-eHQ" firstAttribute="top" secondItem="IUT-pK-XEC" secondAttribute="top" constant="45" id="boc-00-hqH"/>
+                            <constraint firstItem="xIN-WX-Xvi" firstAttribute="leading" secondItem="IUT-pK-XEC" secondAttribute="leading" constant="20" id="dSl-fF-iDz"/>
                             <constraint firstItem="NpZ-lc-98z" firstAttribute="top" secondItem="upr-E6-xkz" secondAttribute="bottom" constant="30" id="due-gy-Rn8"/>
+                            <constraint firstItem="xIN-WX-Xvi" firstAttribute="top" secondItem="upr-E6-xkz" secondAttribute="bottom" constant="30" id="eVk-kG-wF8"/>
                             <constraint firstItem="IUT-pK-XEC" firstAttribute="trailing" secondItem="5CG-Wr-Q3A" secondAttribute="trailing" constant="20" id="gY9-sy-2lE"/>
                             <constraint firstItem="upr-E6-xkz" firstAttribute="leading" secondItem="IUT-pK-XEC" secondAttribute="leading" constant="20" id="hgB-RZ-Ate"/>
                             <constraint firstItem="IUT-pK-XEC" firstAttribute="trailing" secondItem="dxj-VH-YQq" secondAttribute="trailing" constant="20" id="mCN-nt-hJY"/>
