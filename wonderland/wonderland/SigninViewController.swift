@@ -28,7 +28,8 @@ class SigninViewController: UIViewController {
             if user.username == um {
                 if user.password == pw {
                     currUsername = um
-                    self.performSegue(withIdentifier: "Index", sender: self)
+//                    self.performSegue(withIdentifier: "Index", sender: self)
+                    self.dismiss(animated: true, completion: nil)
                 } else {
                     let alert = UIAlertController(title: nil, message: "密码错误", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title:"好的👌",style: .default, handler: nil))

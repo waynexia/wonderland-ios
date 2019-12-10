@@ -47,6 +47,9 @@ class SignupViewController: UIViewController {
                 passwordConfirmed.text = ""
             } else {
                 currUsername = um
+                let user = User(username: um, password: pw)
+                userList.append(user)
+                saveUserList()
                 self.dismiss(animated: true, completion: nil)
             }
         }
