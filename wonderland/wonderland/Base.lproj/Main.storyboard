@@ -561,7 +561,7 @@
                                 <state key="normal" title="发布文章"/>
                                 <connections>
                                     <action selector="finishEditButton:" destination="nNC-wE-eQ0" eventType="touchUpInside" id="fmq-SS-FWF"/>
-                                    <segue destination="DNS-jm-tx6" kind="show" id="MaH-br-72x"/>
+                                    <segue destination="8GY-T4-dh8" kind="unwind" unwindAction="exitWithSegue:" id="Eji-F1-JWL"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -574,6 +574,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cEu-L3-9PI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="8GY-T4-dh8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="606" y="804"/>
         </scene>
@@ -598,6 +599,5 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="WeN-vw-4fC"/>
-        <segue reference="MaH-br-72x"/>
     </inferredMetricsTieBreakers>
 </document>
