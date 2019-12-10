@@ -24,6 +24,14 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>New-Use local images</string>
+	<key>NSCameraUsageDescription</key>
+	<string>New-Use local images</string>
+	<key>NSContactsUsageDescription</key>
+	<string>New-Local storage</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>New-Local storage</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

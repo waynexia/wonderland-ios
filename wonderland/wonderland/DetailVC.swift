@@ -77,9 +77,9 @@ class DetailVC: UIViewController {
     
     // 加载detailText的文本内容（index为nil，或文章不存在，返回nil）
     func loadDetail(contentIndex: UInt32) -> String?{
-        var articlesList = NSKeyedUnarchiver.unarchiveObject(withFile: ArticlesURL.path) as? [String]
+        var articlesList = NSKeyedUnarchiver.unarchiveObject(withFile: loadArticleURL().path) as? [Article]
         if(articlesList != nil){
-            return articlesList?[Int(contentIndex)]
+            return articlesList?[Int(contentIndex)].content
         }
         else{
             print("userLocalArticlesFile is nil")
