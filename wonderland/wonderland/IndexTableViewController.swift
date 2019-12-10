@@ -10,10 +10,24 @@ import UIKit
 
 import UIKit
 
-class IndexTableViewController: UITableViewController {
+class IndexTableViewController: UITableViewController, UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filtered_article_list.removeAll(keepingCapacity: false)
+        let search_key = searchController.searchBar.text!
+        
+        filtered_article_list = articleList.filter{ $0.title.contains(search_key) }
+        
+        self.tableView.reloadData()
+    }
+    
+    
+    @IBOutlet weak var searchbar : UISearchController?
     
     var articleList: [ArticleMeta] = [ArticleMeta]()
+    var filtered_article_list = [ArticleMeta]()
     var articleMetaURL = loadArticleMetaURL()
+    var resultSearchController = UISearchController()
+
     
     func saveArticleList() {
         let success = NSKeyedArchiver.archiveRootObject(articleList, toFile: articleMetaURL.path)
@@ -47,6 +61,19 @@ class IndexTableViewController: UITableViewController {
         }
         
         self.tableView.rowHeight = 120
+        
+        resultSearchController = ({
+            let controller = UISearchController(searchResultsController: nil)
+            controller.searchResultsUpdater = self
+            controller.dimsBackgroundDuringPresentation = false
+            controller.searchBar.sizeToFit()
+            
+            tableView.tableHeaderView = controller.searchBar
+            
+            return controller
+        })()
+        
+        tableView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -69,24 +96,37 @@ class IndexTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if resultSearchController.isActive{
+            return filtered_article_list.count
+        } else {
         return articleList.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "articleCell", for: indexPath) as? IndexTableViewCell
         
-        cell?.title?.text = articleList[indexPath.row].title
+        var articles_to_list = articleList
+        if resultSearchController.isActive{
+            articles_to_list = filtered_article_list
+        }
         
-        let cellAbstract = articleList[indexPath.row].abstract
+        cell?.title?.text = articles_to_list[indexPath.row].title
+        
+        let cellAbstract = articles_to_list[indexPath.row].abstract
         if cellAbstract.count < 10 {
             cell?.abstract?.text = cellAbstract
         } else {
             cell?.abstract?.text = String(cellAbstract[..<cellAbstract.index(cellAbstract.startIndex, offsetBy: 10)]) + " ......"
         }
         
-        cell?.firstImage?.image = articleList[indexPath.row].firstImage
+        if articles_to_list[indexPath.row].firstImage == nil{
+            cell?.firstImage?.image = UIImage(named: "./img/default.jpg")
+        } else {
+            cell?.firstImage?.image = articles_to_list[indexPath.row].firstImage
+        }
         
-        let cellCreatedTime = articleList[indexPath.row].createdTime.description
+        let cellCreatedTime = articles_to_list[indexPath.row].createdTime.description
         cell?.createdTime?.text = String(cellCreatedTime[..<cellCreatedTime.index(cellCreatedTime.startIndex, offsetBy: 20)])
         
         return cell!
