@@ -8,6 +8,22 @@
 
 import UIKit
 
+class ArchiveCell: UITableViewCell{
+    @IBOutlet weak var detail_label: UILabel!
+    @IBOutlet weak var count_label: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+}
+
 class ArchiveVC: UITableViewController {
     // catalog fields
     var months : [MonthCatalog] = [MonthCatalog]()
@@ -54,15 +70,18 @@ class ArchiveVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "archive_cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "archive_cell", for: indexPath) as! ArchiveCell
         // Configure the cell
         if(is_showing_tags){
-            cell.textLabel?.text = tags[indexPath.row].tag_name
-            cell.detailTextLabel?.text = String(tags[indexPath.row].tag_count)
+            cell.detail_label?.text = tags[indexPath.row].tag_name
+            cell.count_label?.text = String(tags[indexPath.row].tag_count) + "     "
         } else {
-            cell.textLabel?.text = months[indexPath.row].get_time()
-            cell.detailTextLabel?.text = months[indexPath.row].get_count()
+            cell.detail_label?.text = months[indexPath.row].get_time()
+            cell.count_label?.text = months[indexPath.row].get_count()
         }
+        cell.count_label.layer.cornerRadius = 10
+        cell.count_label.layer.masksToBounds = true
+        cell.count_label.layer.borderColor = UIColor.orange.cgColor;    cell.count_label.layer.borderWidth = 1
         return cell
     }
     

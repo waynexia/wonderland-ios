@@ -14,6 +14,16 @@ class IndexTableViewController: UITableViewController {
     
     var articleList: [ArticleMeta] = [ArticleMeta]()
     
+    @IBAction func copy_title(sender: UILongPressGestureRecognizer){
+        if sender.state == UIGestureRecognizer.State.ended{
+            let alertController = UIAlertController(title:"文章标题已复制到剪切板",message: nil, preferredStyle: .alert)
+            self.present(alertController,animated: true,completion: nil)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1){
+                self.presentedViewController?.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
     func loadArticleList() -> [ArticleMeta]? {
         return (NSKeyedUnarchiver.unarchiveObject(withFile: ArticleMetaURL.path) as? [ArticleMeta])
     }
@@ -114,6 +124,14 @@ class IndexTableViewController: UITableViewController {
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
+        
+        if let detailVC = segue.destination as? DetailVC {
+            if let selectedCell4detail = sender as? UITableViewCell {
+                let indexPath = tableView.indexPath(for: selectedCell4detail)
+                let selectedArticleItem = articleList[(indexPath! as NSIndexPath).row]
+                detailVC.articleMeta = selectedArticleItem
+            }
+        }
         
         if let archiveVC = segue.destination as? ArchiveVC{
             archiveVC.setup(metas: articleList)

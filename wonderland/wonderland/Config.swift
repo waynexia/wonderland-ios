@@ -12,5 +12,5 @@ import UIKit
 let DocumentsDirectory = FileManager()
     .urls(for: .documentDirectory, in: .userDomainMask).first!
 
-let ArticleMetaURL = DocumentsDirectory.appendingPathComponent("articleMeta")
-let ArticlesURL = DocumentsDirectory.appendingPathComponent("articles")
+let ArticleMetaURL = DocumentsDirectory.appendingPathComponent("metaTest")   // articleMeta
+let ArticlesURL = DocumentsDirectory.appendingPathComponent("articlesTest")         // articles

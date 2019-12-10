@@ -11,6 +11,16 @@ import UIKit
 class ArchivedListVC: UITableViewController {
     
     var articleList: [ArticleMeta] = [ArticleMeta]()
+    
+    @IBAction func copy_title(sender: UILongPressGestureRecognizer){
+        if sender.state == UIGestureRecognizer.State.ended{
+            let alertController = UIAlertController(title:"文章标题已复制到剪切板",message: nil, preferredStyle: .alert)
+            self.present(alertController,animated: true,completion: nil)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1){
+                self.presentedViewController?.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,6 +102,19 @@ class ArchivedListVC: UITableViewController {
         return true
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        
+        if let detailVC = segue.destination as? DetailVC {
+            if let selectedCell4detail = sender as? UITableViewCell {
+                let indexPath = tableView.indexPath(for: selectedCell4detail)
+                let selectedArticleItem = articleList[(indexPath! as NSIndexPath).row]
+                detailVC.articleMeta = selectedArticleItem
+            }
+        }
+    }
 
 }
 

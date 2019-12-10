@@ -52,7 +52,6 @@ class SaveNoteVC: UIViewController {
         // 匹配![]()
         let imgPatten = "!\\[[^\\[]*\\]\\([^\\)]*\\)"
         let imgRegex = try? NSRegularExpression(pattern: imgPatten, options: [])
-        self.noteContent = "asdsadsadadsad ![123](./a/b/c.jpg)"
         if let imgResults = imgRegex?.matches(in: self.noteContent!, options: [], range: NSRange(location: 0, length: self.noteContent!.count)), imgResults.count != 0 {
             let matchResult = (self.noteContent! as NSString).substring(with: imgResults[0].range)
             // 匹配图片路径
@@ -63,24 +62,22 @@ class SaveNoteVC: UIViewController {
                 let startIndex = matchResult.index(matchResult.startIndex, offsetBy: 1)
                 let endIndex =  matchResult.index(matchResult.startIndex, offsetBy: matchResult.count-1)
                 imgPath = String(matchResult[startIndex..<endIndex])
-                print(imgPath)
             }
         }
         let noteFirstImage = UIImage(named: imgPath)
         
-        
         // 保存 article content
         let newArticleContent = Article(content: self.noteContent!)
-        var localArticleContents = NSKeyedUnarchiver.unarchiveObject(withFile: ArticlesURL.path) as? [Article]
-        let contentIndex = localArticleContents!.count  // 计算contentIndex供下边article metay用
-        let newLocalArticleContents = localArticleContents!.append(newArticleContent)
-        NSKeyedArchiver.archiveRootObject(newLocalArticleContents, toFile: ArticlesURL.path)
+        var localArticleContents = (NSKeyedUnarchiver.unarchiveObject(withFile: ArticlesURL.path) as? [Article]) ?? [Article]()
+        let contentIndex = localArticleContents.count  // 计算contentIndex供下边article metay用
+        localArticleContents.append(newArticleContent)
+        NSKeyedArchiver.archiveRootObject(localArticleContents, toFile: ArticlesURL.path)
         
         // 保存 article meta
-        let newArticleMeta = ArticleMeta(title: self.noteTitle!, abstract: self.abstract.text, firstImage: noteFirstImage, tags: tagsArray, createdTime: NSDate(), contentIndex: UInt32(contentIndex)) 
-        var localArticleMeta = NSKeyedUnarchiver.unarchiveObject(withFile: ArticleMetaURL.path) as? [ArticleMeta]
-        let newLocalArticleMeta = localArticleMeta!.append(newArticleMeta)
-        NSKeyedArchiver.archiveRootObject(newLocalArticleMeta, toFile: ArticleMetaURL.path)
+        let newArticleMeta = ArticleMeta(title: self.noteTitle!, abstract: self.abstract.text, firstImage: noteFirstImage, tags: tagsArray, createdTime: NSDate(), contentIndex: UInt32(contentIndex))
+        var localArticleMeta = (NSKeyedUnarchiver.unarchiveObject(withFile: ArticleMetaURL.path) as? [ArticleMeta]) ?? [ArticleMeta]()
+        localArticleMeta.append(newArticleMeta)
+        NSKeyedArchiver.archiveRootObject(localArticleMeta, toFile: ArticleMetaURL.path)
     }
     /*
      // MARK: - Navigation
