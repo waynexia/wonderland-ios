@@ -60,7 +60,7 @@ class SaveNoteVC: UIViewController,UINavigationControllerDelegate, UIImagePicker
             self.abstract_placeholder.text = self.defaultAbstract!
         }
         if(self.firstImg.image == nil){
-            self.firstImg.image = UIImage(named: "/Users/apple/Desktop/sj/final homework/wonderland-ios/wonderland/wonderland/img/default.jpg")
+            self.firstImg.image = UIImage(named: "./img/default.jpg")
         }
         tags.delegate = self
         abstract.delegate = self
