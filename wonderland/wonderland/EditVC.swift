@@ -9,11 +9,15 @@
 import UIKit
 import MarkdownKit
 
-class EditVC: UIViewController {
+class EditVC: UIViewController, UITextViewDelegate{
     
     @IBOutlet weak var editTitle: UITextView!
     @IBOutlet weak var editContent: UITextView!
     @IBOutlet weak var previewButton: UIBarButtonItem!
+    
+    @IBOutlet weak var title_placeholder: UILabel!
+    @IBOutlet weak var content_placeholder: UILabel!
+    
     var content = ""
     
     @IBAction func previewClick(_ sender: Any) {
@@ -42,12 +46,15 @@ class EditVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // text view 样式
-        
-        // Do any additional setup after loading the view.
+        // bind delegate
+        editTitle.delegate = self
+        editContent.delegate = self
     }
     
-    
+    func textViewDidChange(_ textView: UITextView) {
+        title_placeholder.isHidden = !editTitle.text.isEmpty
+        content_placeholder.isHidden = !editContent.text.isEmpty
+    }
     
     // MARK: - Navigation
     
@@ -70,7 +77,4 @@ class EditVC: UIViewController {
             }
         }
     }
- 
-    
 }
-
