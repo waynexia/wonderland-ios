@@ -561,6 +561,7 @@
                                 <state key="normal" title="发布文章"/>
                                 <connections>
                                     <action selector="finishEditButton:" destination="nNC-wE-eQ0" eventType="touchUpInside" id="fmq-SS-FWF"/>
+                                    <segue destination="DNS-jm-tx6" kind="show" id="MaH-br-72x"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -597,5 +598,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="WeN-vw-4fC"/>
+        <segue reference="MaH-br-72x"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -13,7 +13,7 @@ import UIKit
 class IndexTableViewController: UITableViewController {
     
     var articleList: [ArticleMeta] = [ArticleMeta]()
-    let articleMetaURL = loadArticleMetaURL()
+    var articleMetaURL = loadArticleMetaURL()
     
     func saveArticleList() {
         let success = NSKeyedArchiver.archiveRootObject(articleList, toFile: articleMetaURL.path)
@@ -35,6 +35,7 @@ class IndexTableViewController: UITableViewController {
     
     func initArticleList() {
         let article = ArticleMeta(title: "开始", abstract: "写新的博客！这是一篇使用教程", firstImage: nil, tags: ["tag1","tag2"], createdTime: NSDate(), contentIndex: 2147483647)
+        articleList = []
         articleList.append(article)
     }
     
@@ -43,19 +44,23 @@ class IndexTableViewController: UITableViewController {
         if currUsername == ""{
             guard let signinVC = self.storyboard?.instantiateViewController(withIdentifier: "SignIn") else {return}
             self.present(signinVC, animated: true, completion: nil)
-        } else {
-            self.tableView.rowHeight = 120
-            
-            if let articleListFromFile = loadArticleList() {
-                articleList = articleListFromFile
-            }
-            else {
-                initArticleList()
-            }
         }
+        
+        self.tableView.rowHeight = 120
     }
     
     // MARK: - Table view data source
+    
+    override func viewWillAppear(_ animated: Bool) {
+        articleMetaURL = loadArticleMetaURL()
+        if let articleListFromFile = loadArticleList() {
+            articleList = articleListFromFile
+        }
+        else {
+            initArticleList()
+        }
+        self.tableView.reloadData()
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
