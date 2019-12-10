@@ -50,19 +50,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hint" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXy-GY-4yM">
-                                <rect key="frame" x="25" y="394" width="31" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="upr-E6-xkz" firstAttribute="top" secondItem="5CG-Wr-Q3A" secondAttribute="bottom" constant="30" id="97p-bK-Sjh"/>
                             <constraint firstItem="dxj-VH-YQq" firstAttribute="leading" secondItem="IUT-pK-XEC" secondAttribute="leading" constant="20" id="BdM-pl-SIm"/>
                             <constraint firstItem="HQg-8k-eHQ" firstAttribute="centerX" secondItem="RXn-y6-NZ2" secondAttribute="centerX" id="HN0-4B-auf"/>
-                            <constraint firstItem="UXy-GY-4yM" firstAttribute="leading" secondItem="IUT-pK-XEC" secondAttribute="leading" constant="25" id="Hcm-cb-6up"/>
                             <constraint firstItem="dxj-VH-YQq" firstAttribute="top" secondItem="HQg-8k-eHQ" secondAttribute="bottom" constant="30" id="N4j-uJ-k1g"/>
                             <constraint firstItem="5CG-Wr-Q3A" firstAttribute="leading" secondItem="IUT-pK-XEC" secondAttribute="leading" constant="20" id="Pfx-M7-3ZP"/>
                             <constraint firstItem="HQg-8k-eHQ" firstAttribute="top" secondItem="IUT-pK-XEC" secondAttribute="top" constant="45" id="boc-00-hqH"/>
@@ -72,13 +65,11 @@
                             <constraint firstItem="IUT-pK-XEC" firstAttribute="trailing" secondItem="dxj-VH-YQq" secondAttribute="trailing" constant="20" id="mCN-nt-hJY"/>
                             <constraint firstItem="IUT-pK-XEC" firstAttribute="trailing" secondItem="NpZ-lc-98z" secondAttribute="trailing" constant="20" id="qao-Mr-ajg"/>
                             <constraint firstItem="5CG-Wr-Q3A" firstAttribute="top" secondItem="dxj-VH-YQq" secondAttribute="bottom" constant="30" id="tPH-Ar-gGJ"/>
-                            <constraint firstItem="UXy-GY-4yM" firstAttribute="top" secondItem="NpZ-lc-98z" secondAttribute="bottom" constant="20" id="umS-bZ-naT"/>
                             <constraint firstItem="IUT-pK-XEC" firstAttribute="trailing" secondItem="upr-E6-xkz" secondAttribute="trailing" constant="20" id="yfg-CO-PO3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IUT-pK-XEC"/>
                     </view>
                     <connections>
-                        <outlet property="hint" destination="UXy-GY-4yM" id="ddi-Jn-7ee"/>
                         <outlet property="password" destination="5CG-Wr-Q3A" id="Dxx-pO-QRu"/>
                         <outlet property="passwordConfirmed" destination="upr-E6-xkz" id="gwW-RT-TLa"/>
                         <outlet property="username" destination="dxj-VH-YQq" id="7I4-Ib-vAr"/>
@@ -130,12 +121,6 @@
                                     <action selector="jump_to_sign_up:" destination="rQS-fv-zDA" eventType="touchUpInside" id="4Qb-1e-pXX"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hint" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajk-AY-Zhl">
-                                <rect key="frame" x="25" y="334" width="31" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -143,10 +128,8 @@
                             <constraint firstItem="jGq-KP-aiW" firstAttribute="trailing" secondItem="qbo-AT-lAY" secondAttribute="trailing" constant="20" id="6uW-K8-X0P"/>
                             <constraint firstItem="jGq-KP-aiW" firstAttribute="trailing" secondItem="Wf8-FR-iYw" secondAttribute="trailing" constant="20" id="7GY-rF-d1Y"/>
                             <constraint firstItem="YT5-U7-jUy" firstAttribute="top" secondItem="53f-rT-OxU" secondAttribute="bottom" constant="30" id="Enm-R9-igG"/>
-                            <constraint firstItem="ajk-AY-Zhl" firstAttribute="top" secondItem="YT5-U7-jUy" secondAttribute="bottom" constant="20" id="Ryc-8b-1ma"/>
                             <constraint firstItem="c8k-Cb-4ZI" firstAttribute="top" secondItem="jGq-KP-aiW" secondAttribute="top" constant="45" id="UR7-ht-JhN"/>
                             <constraint firstItem="qbo-AT-lAY" firstAttribute="leading" secondItem="jGq-KP-aiW" secondAttribute="leading" constant="20" id="VjW-1v-Fs9"/>
-                            <constraint firstItem="ajk-AY-Zhl" firstAttribute="leading" secondItem="jGq-KP-aiW" secondAttribute="leading" constant="25" id="Vy3-cL-fK8"/>
                             <constraint firstItem="53f-rT-OxU" firstAttribute="top" secondItem="qbo-AT-lAY" secondAttribute="bottom" constant="30" id="ZLN-qi-p9H"/>
                             <constraint firstItem="53f-rT-OxU" firstAttribute="leading" secondItem="jGq-KP-aiW" secondAttribute="leading" constant="20" id="gj3-Cy-tJw"/>
                             <constraint firstItem="qbo-AT-lAY" firstAttribute="top" secondItem="c8k-Cb-4ZI" secondAttribute="bottom" constant="30" id="hTs-Xy-6Vz"/>
@@ -158,7 +141,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="evF-nF-uqX"/>
                     <connections>
-                        <outlet property="hint" destination="ajk-AY-Zhl" id="imC-hB-fuG"/>
                         <outlet property="password" destination="53f-rT-OxU" id="vyl-4o-J9w"/>
                         <outlet property="username" destination="qbo-AT-lAY" id="tNF-xN-qUn"/>
                     </connections>

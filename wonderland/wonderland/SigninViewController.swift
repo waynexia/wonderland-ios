@@ -11,10 +11,18 @@ import UIKit
 class SigninViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var hint: UILabel!
     @IBAction func confirm(_ sender: Any) {
         let um = username.text!
         let pw = password.text!
+        //check null fields
+        if um == "" || pw == ""{
+            let alert = UIAlertController(title: nil, message: "请输入用户名 / 密码", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title:"好的👌",style: .default, handler: nil))
+            self.present(alert,animated: true,completion: nil)
+            username.text = ""
+            password.text = ""
+            return
+        }
         var isRegistered = false
         for user in userList {
             if user.username == um {
@@ -22,23 +30,28 @@ class SigninViewController: UIViewController {
                     currUsername = um
                     self.performSegue(withIdentifier: "Index", sender: self)
                 } else {
-                    hint.text = "密码错误"
+                    let alert = UIAlertController(title: nil, message: "密码错误", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title:"好的👌",style: .default, handler: nil))
+                    self.present(alert,animated: true,completion: nil)
+                    password.text = ""
                 }
                 isRegistered = true
                 break
             }
         }
         if !isRegistered {
-            hint.text = "账号不存在，请先去注册"
+            let alert = UIAlertController(title: nil, message: "账号不存在，请先去注册", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title:"好的👌",style: .default, handler: nil))
+            self.present(alert,animated: true,completion: nil)
+            username.text = ""
+            password.text = ""
         }
         
     }
     
     @IBAction func jump_to_sign_up(_ sender: Any){
         guard let signupVC = self.storyboard?.instantiateViewController(withIdentifier: "SignUp") else {return}
-//        self.dismiss(animated: true, completion: nil)
         self.present(signupVC, animated: true, completion: nil)
-//        self.navigationController?.pushViewController(signupVC, animated: true)
     }
     
     
@@ -54,7 +67,6 @@ class SigninViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("get into signin")
         
         if let userListFromFile = loadUserList() {
             userList = userListFromFile
