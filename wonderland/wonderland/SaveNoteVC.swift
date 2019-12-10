@@ -15,7 +15,7 @@
 
 import UIKit
 
-class SaveNoteVC: UIViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class SaveNoteVC: UIViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate{
     // 上一个页面传来的数据
     var noteTitle: String?
     var noteContent: String?
@@ -26,6 +26,8 @@ class SaveNoteVC: UIViewController,UINavigationControllerDelegate, UIImagePicker
     @IBOutlet weak var tags: UITextView!
     @IBOutlet weak var abstract: UITextView!
     @IBOutlet weak var firstImg: UIImageView!
+    @IBOutlet weak var tags_placeholder: UILabel!
+    @IBOutlet weak var abstract_placeholder: UILabel!
     
     @IBAction func clickImage(_ sender: Any) {
         let imagePicker = UIImagePickerController()
@@ -55,11 +57,13 @@ class SaveNoteVC: UIViewController,UINavigationControllerDelegate, UIImagePicker
         // Do any additional setup after loading the view.
         
         if(self.defaultAbstract != nil){
-            self.abstract.text = self.defaultAbstract
+            self.abstract_placeholder.text = self.defaultAbstract!
         }
         if(self.firstImg.image == nil){
             self.firstImg.image = UIImage(named: "/Users/apple/Desktop/sj/final homework/wonderland-ios/wonderland/wonderland/img/default.jpg")
         }
+        tags.delegate = self
+        abstract.delegate = self
     }
     
     @IBAction func finishEditButton(_ sender: Any) {
@@ -97,11 +101,20 @@ class SaveNoteVC: UIViewController,UINavigationControllerDelegate, UIImagePicker
         NSKeyedArchiver.archiveRootObject(localArticleContents, toFile: loadArticleURL().path)
         
         // 保存 article meta
+        if abstract.text.isEmpty{
+            abstract.text = abstract_placeholder.text
+        }
         let newArticleMeta = ArticleMeta(title: self.noteTitle!, abstract: self.abstract.text, firstImage: noteFirstImage, tags: tagsArray, createdTime: NSDate(), contentIndex: UInt32(contentIndex))
         var localArticleMeta = (NSKeyedUnarchiver.unarchiveObject(withFile: loadArticleMetaURL().path) as? [ArticleMeta]) ?? [ArticleMeta]()
         localArticleMeta.append(newArticleMeta)
         NSKeyedArchiver.archiveRootObject(localArticleMeta, toFile: loadArticleMetaURL().path)
     }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        tags_placeholder.isHidden = !tags.text.isEmpty
+        abstract_placeholder.isHidden = !abstract.text.isEmpty
+    }
+    
     /*
      // MARK: - Navigation
      
