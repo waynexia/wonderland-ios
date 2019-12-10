@@ -68,16 +68,16 @@ class SaveNoteVC: UIViewController {
         
         // 保存 article content
         let newArticleContent = Article(content: self.noteContent!)
-        var localArticleContents = (NSKeyedUnarchiver.unarchiveObject(withFile: ArticlesURL.path) as? [Article]) ?? [Article]()
+        var localArticleContents = (NSKeyedUnarchiver.unarchiveObject(withFile: loadArticleURL().path) as? [Article]) ?? [Article]()
         let contentIndex = localArticleContents.count  // 计算contentIndex供下边article metay用
         localArticleContents.append(newArticleContent)
-        NSKeyedArchiver.archiveRootObject(localArticleContents, toFile: ArticlesURL.path)
+        NSKeyedArchiver.archiveRootObject(localArticleContents, toFile: loadArticleURL().path)
         
         // 保存 article meta
         let newArticleMeta = ArticleMeta(title: self.noteTitle!, abstract: self.abstract.text, firstImage: noteFirstImage, tags: tagsArray, createdTime: NSDate(), contentIndex: UInt32(contentIndex))
-        var localArticleMeta = (NSKeyedUnarchiver.unarchiveObject(withFile: ArticleMetaURL.path) as? [ArticleMeta]) ?? [ArticleMeta]()
+        var localArticleMeta = (NSKeyedUnarchiver.unarchiveObject(withFile: loadArticleMetaURL().path) as? [ArticleMeta]) ?? [ArticleMeta]()
         localArticleMeta.append(newArticleMeta)
-        NSKeyedArchiver.archiveRootObject(localArticleMeta, toFile: ArticleMetaURL.path)
+        NSKeyedArchiver.archiveRootObject(localArticleMeta, toFile: loadArticleMetaURL().path)
     }
     /*
      // MARK: - Navigation

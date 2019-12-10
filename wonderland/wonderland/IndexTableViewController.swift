@@ -2,7 +2,7 @@
 //  IndexTableViewController.swift
 //  wonderland
 //
-//  Created by Apple on 2019/11/12.
+//  Created by Forwhfang on 2019/11/12.
 //  Copyright © 2019 SCUT_wonderland. All rights reserved.
 //
 
@@ -13,6 +13,11 @@ import UIKit
 class IndexTableViewController: UITableViewController {
     
     var articleList: [ArticleMeta] = [ArticleMeta]()
+    let articleMetaURL = loadArticleMetaURL()
+    
+    func saveArticleList() {
+        let success = NSKeyedArchiver.archiveRootObject(articleList, toFile: articleMetaURL.path)
+    }
     
     @IBAction func copy_title(sender: UILongPressGestureRecognizer){
         if sender.state == UIGestureRecognizer.State.ended{
@@ -25,7 +30,7 @@ class IndexTableViewController: UITableViewController {
     }
     
     func loadArticleList() -> [ArticleMeta]? {
-        return (NSKeyedUnarchiver.unarchiveObject(withFile: ArticleMetaURL.path) as? [ArticleMeta])
+        return (NSKeyedUnarchiver.unarchiveObject(withFile: articleMetaURL.path) as? [ArticleMeta])
     }
     
     func initArticleList() {
@@ -35,19 +40,18 @@ class IndexTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.rowHeight = 120
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        if let articleListFromFile = loadArticleList() {
-            articleList = articleListFromFile
-        }
-        else {
-            initArticleList()
+        if currUsername == ""{
+            guard let signinVC = self.storyboard?.instantiateViewController(withIdentifier: "SignIn") else {return}
+            self.present(signinVC, animated: true, completion: nil)
+        } else {
+            self.tableView.rowHeight = 120
+            
+            if let articleListFromFile = loadArticleList() {
+                articleList = articleListFromFile
+            }
+            else {
+                initArticleList()
+            }
         }
     }
     

@@ -10,39 +10,42 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Signup View Controller-->
         <scene sceneID="BON-iC-9V1">
             <objects>
-                <viewController id="Jed-7U-jSX" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="RXn-y6-NZ2">
+                <viewController storyboardIdentifier="SignUp" id="Jed-7U-jSX" customClass="SignupViewController" customModule="wonderland" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="SignUp" id="RXn-y6-NZ2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQg-8k-eHQ">
-                                <rect key="frame" x="174.5" y="133" width="65" height="39"/>
+                                <rect key="frame" x="174.5" y="89" width="65" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" red="0.2536701858" green="0.59039515259999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入账号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dxj-VH-YQq">
-                                <rect key="frame" x="20" y="202" width="374" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入账号" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dxj-VH-YQq">
+                                <rect key="frame" x="20" y="158" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请确认密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="upr-E6-xkz">
-                                <rect key="frame" x="20" y="322" width="374" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请确认密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="upr-E6-xkz">
+                                <rect key="frame" x="20" y="278" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NpZ-lc-98z">
-                                <rect key="frame" x="353" y="382" width="41" height="36"/>
+                                <rect key="frame" x="353" y="338" width="41" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="确定"/>
+                                <connections>
+                                    <action selector="confirm:" destination="Jed-7U-jSX" eventType="touchUpInside" id="H78-ii-4Y8"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5CG-Wr-Q3A">
-                                <rect key="frame" x="20" y="262" width="374" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5CG-Wr-Q3A">
+                                <rect key="frame" x="20" y="218" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -66,48 +69,56 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IUT-pK-XEC"/>
                     </view>
+                    <connections>
+                        <outlet property="password" destination="5CG-Wr-Q3A" id="Dxx-pO-QRu"/>
+                        <outlet property="passwordConfirmed" destination="upr-E6-xkz" id="gwW-RT-TLa"/>
+                        <outlet property="username" destination="dxj-VH-YQq" id="7I4-Ib-vAr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6sv-LZ-9rK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2701" y="-627"/>
         </scene>
-        <!--View Controller-->
+        <!--Signin View Controller-->
         <scene sceneID="V51-Wl-NHW">
             <objects>
-                <viewController id="rQS-fv-zDA" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignIn" id="rQS-fv-zDA" customClass="SigninViewController" customModule="wonderland" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="SignIn" id="h73-Ub-ZA0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登陆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8k-Cb-4ZI">
-                                <rect key="frame" x="174.5" y="133" width="65" height="39"/>
+                                <rect key="frame" x="174.5" y="89" width="65" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" red="0.2536701858" green="0.59039515259999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入账号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qbo-AT-lAY">
-                                <rect key="frame" x="20" y="202" width="374" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入账号" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qbo-AT-lAY">
+                                <rect key="frame" x="20" y="158" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="53f-rT-OxU">
-                                <rect key="frame" x="20" y="262" width="374" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="53f-rT-OxU">
+                                <rect key="frame" x="20" y="218" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wf8-FR-iYw">
-                                <rect key="frame" x="353" y="322" width="41" height="36"/>
+                                <rect key="frame" x="353" y="278" width="41" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="确定"/>
+                                <connections>
+                                    <action selector="confirm:" destination="rQS-fv-zDA" eventType="touchUpInside" id="i2d-4x-HTN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YT5-U7-jUy">
-                                <rect key="frame" x="20" y="322" width="41" height="36"/>
+                                <rect key="frame" x="20" y="278" width="41" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="注册"/>
                                 <connections>
-                                    <segue destination="Jed-7U-jSX" kind="show" id="qlU-P1-zPI"/>
+                                    <action selector="jump_to_sign_up:" destination="rQS-fv-zDA" eventType="touchUpInside" id="4Qb-1e-pXX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -128,6 +139,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jGq-KP-aiW"/>
                     </view>
+                    <navigationItem key="navigationItem" id="evF-nF-uqX"/>
+                    <connections>
+                        <outlet property="password" destination="53f-rT-OxU" id="vyl-4o-J9w"/>
+                        <outlet property="username" destination="qbo-AT-lAY" id="tNF-xN-qUn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fSg-bx-g7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -205,11 +221,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="VeA-oZ-e66">
-                        <barButtonItem key="leftBarButtonItem" title="登陆" id="kfI-ge-GTP">
-                            <connections>
-                                <segue destination="rQS-fv-zDA" kind="show" id="EZd-FD-scb"/>
-                            </connections>
-                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="8kx-im-bic">
                                 <connections>
