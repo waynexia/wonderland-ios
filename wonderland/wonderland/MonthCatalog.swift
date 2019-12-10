@@ -26,6 +26,6 @@ struct MonthCatalog{
     }
     
     func get_count() -> String{
-        return String(self.count)
+        return String(self.count) + "     "
     }
 }

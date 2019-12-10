@@ -19,12 +19,22 @@ class IndexTableViewController: UITableViewController {
         let success = NSKeyedArchiver.archiveRootObject(articleList, toFile: articleMetaURL.path)
     }
     
+    @IBAction func copy_title(sender: UILongPressGestureRecognizer){
+        if sender.state == UIGestureRecognizer.State.ended{
+            let alertController = UIAlertController(title:"文章标题已复制到剪切板",message: nil, preferredStyle: .alert)
+            self.present(alertController,animated: true,completion: nil)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1){
+                self.presentedViewController?.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
     func loadArticleList() -> [ArticleMeta]? {
         return (NSKeyedUnarchiver.unarchiveObject(withFile: articleMetaURL.path) as? [ArticleMeta])
     }
     
     func initArticleList() {
-        let article = ArticleMeta(title: "开始", abstract: "写新的博客！这是一篇使用教程", firstImage: nil, tags: [], createdTime: NSDate(), contentIndex: 2147483647)
+        let article = ArticleMeta(title: "开始", abstract: "写新的博客！这是一篇使用教程", firstImage: nil, tags: ["tag1","tag2"], createdTime: NSDate(), contentIndex: 2147483647)
         articleList.append(article)
     }
     
@@ -118,6 +128,14 @@ class IndexTableViewController: UITableViewController {
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
+        
+        if let detailVC = segue.destination as? DetailVC {
+            if let selectedCell4detail = sender as? UITableViewCell {
+                let indexPath = tableView.indexPath(for: selectedCell4detail)
+                let selectedArticleItem = articleList[(indexPath! as NSIndexPath).row]
+                detailVC.articleMeta = selectedArticleItem
+            }
+        }
         
         if let archiveVC = segue.destination as? ArchiveVC{
             archiveVC.setup(metas: articleList)
