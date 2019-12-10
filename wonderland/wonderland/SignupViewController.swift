@@ -47,6 +47,17 @@ class SignupViewController: UIViewController {
                 passwordConfirmed.text = ""
             } else {
                 currUsername = um
+                // create user's folder
+                let user_path = DocumentsDirectory.appendingPathComponent(currUsername)
+                if !FileManager.default.fileExists(atPath: user_path.absoluteString) {
+                    do {
+                        try FileManager.default.createDirectory(atPath: user_path.path, withIntermediateDirectories: true, attributes: nil)
+                    } catch {
+                        print(error.localizedDescription);
+                        currUsername = ""
+                        return
+                    }
+                }
                 let user = User(username: um, password: pw)
                 userList.append(user)
                 saveUserList()
