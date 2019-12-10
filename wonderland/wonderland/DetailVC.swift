@@ -77,14 +77,16 @@ class DetailVC: UIViewController {
     
     // 加载detailText的文本内容（index为nil，或文章不存在，返回nil）
     func loadDetail(contentIndex: UInt32) -> String?{
+        if contentIndex == 2147483647{
+            return "开始使用，这是一篇使用教程。你可以使用markdown语法在这里编写你的博客，并且使用Preview模式来进行预览\nYou can use markdown grammar to write your blog, and use `Preview` mod to see what it will looks like"
+        }
         var articlesList = NSKeyedUnarchiver.unarchiveObject(withFile: loadArticleURL().path) as? [Article]
         if(articlesList != nil){
             return articlesList?[Int(contentIndex)].content
         }
         else{
             print("userLocalArticlesFile is nil")
-            return "delete me, just for test. use below line"
-//            return nil
+            return nil
         }
     }
 
