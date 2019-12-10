@@ -20,6 +20,7 @@ class SaveNoteVC: UIViewController,UINavigationControllerDelegate, UIImagePicker
     var noteTitle: String?
     var noteContent: String?
     var defaultAbstract: String?
+    var userChangeImage: Bool = false
     
     // 本页面数据
     @IBOutlet weak var tags: UITextView!
@@ -28,17 +29,16 @@ class SaveNoteVC: UIViewController,UINavigationControllerDelegate, UIImagePicker
     @IBOutlet weak var tags_placeholder: UILabel!
     @IBOutlet weak var abstract_placeholder: UILabel!
     
-    @IBAction func clickImg(_ sender: Any) {
-        print("click")
+    @IBAction func clickImage(_ sender: Any) {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
         present(imagePicker, animated: true, completion: nil)
     }
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]){
         let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         self.firstImg.image = selectedImage
+        self.userChangeImage = true
         
         dismiss(animated: true, completion: nil)
     }
@@ -60,7 +60,7 @@ class SaveNoteVC: UIViewController,UINavigationControllerDelegate, UIImagePicker
             self.abstract_placeholder.text = self.defaultAbstract!
         }
         if(self.firstImg.image == nil){
-            self.firstImg.image = UIImage(named: "./img/default.jpg")
+            self.firstImg.image = UIImage(named: "/Users/apple/Desktop/sj/final homework/wonderland-ios/wonderland/wonderland/img/default.jpg")
         }
         tags.delegate = self
         abstract.delegate = self
@@ -70,24 +70,28 @@ class SaveNoteVC: UIViewController,UINavigationControllerDelegate, UIImagePicker
         // 标签
         let tagsArray = self.tags.text.split(separator: " ", omittingEmptySubsequences: true).map(String.init)
         
-        // 第一张图片
-        var imgPath = ""
-        // 匹配![]()
-        let imgPatten = "!\\[[^\\[]*\\]\\([^\\)]*\\)"
-        let imgRegex = try? NSRegularExpression(pattern: imgPatten, options: [])
-        if let imgResults = imgRegex?.matches(in: self.noteContent!, options: [], range: NSRange(location: 0, length: self.noteContent!.count)), imgResults.count != 0 {
-            let matchResult = (self.noteContent! as NSString).substring(with: imgResults[0].range)
-            // 匹配图片路径
-            let imgPathPatten = "\\([^\\)]*\\)"
-            let imgPathRegex = try? NSRegularExpression(pattern: imgPathPatten, options: [])
-            if let imgPathResults = imgPathRegex?.matches(in: matchResult, options: [], range: NSRange(location: 0, length: matchResult.count)), imgPathResults.count != 0 {
-                let matchResult = (matchResult as NSString).substring(with: imgPathResults[0].range)
-                let startIndex = matchResult.index(matchResult.startIndex, offsetBy: 1)
-                let endIndex =  matchResult.index(matchResult.startIndex, offsetBy: matchResult.count-1)
-                imgPath = String(matchResult[startIndex..<endIndex])
-            }
+//        // 第一张图片
+//        var imgPath = ""
+//        // 匹配![]()
+//        let imgPatten = "!\\[[^\\[]*\\]\\([^\\)]*\\)"
+//        let imgRegex = try? NSRegularExpression(pattern: imgPatten, options: [])
+//        if let imgResults = imgRegex?.matches(in: self.noteContent!, options: [], range: NSRange(location: 0, length: self.noteContent!.count)), imgResults.count != 0 {
+//            let matchResult = (self.noteContent! as NSString).substring(with: imgResults[0].range)
+//            // 匹配图片路径
+//            let imgPathPatten = "\\([^\\)]*\\)"
+//            let imgPathRegex = try? NSRegularExpression(pattern: imgPathPatten, options: [])
+//            if let imgPathResults = imgPathRegex?.matches(in: matchResult, options: [], range: NSRange(location: 0, length: matchResult.count)), imgPathResults.count != 0 {
+//                let matchResult = (matchResult as NSString).substring(with: imgPathResults[0].range)
+//                let startIndex = matchResult.index(matchResult.startIndex, offsetBy: 1)
+//                let endIndex =  matchResult.index(matchResult.startIndex, offsetBy: matchResult.count-1)
+//                imgPath = String(matchResult[startIndex..<endIndex])
+//            }
+//        }
+//        let noteFirstImage = UIImage(named: imgPath)
+        var noteFirstImage = self.firstImg.image
+        if(!self.userChangeImage){
+            noteFirstImage = nil
         }
-        let noteFirstImage = UIImage(named: imgPath)
         
         // 保存 article content
         let newArticleContent = Article(content: self.noteContent!)

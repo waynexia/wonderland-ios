@@ -602,12 +602,12 @@
                                     <segue destination="8GY-T4-dh8" kind="unwind" unwindAction="exitWithSegue:" id="Eji-F1-JWL"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QV0-RL-sNM">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QV0-RL-sNM">
                                 <rect key="frame" x="132" y="191" width="150" height="148"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="2VQ-y2-3hb" appends="YES" id="Oro-wC-hSO"/>
+                                    <outletCollection property="gestureRecognizers" destination="PTx-Pv-7cV" appends="YES" id="zre-e6-Iz7"/>
                                 </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="点击修改图片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2H-3l-VdB">
@@ -645,9 +645,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cEu-L3-9PI" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="8GY-T4-dh8" userLabel="Exit" sceneMemberID="exit"/>
-                <tapGestureRecognizer id="2VQ-y2-3hb">
+                <tapGestureRecognizer id="PTx-Pv-7cV">
                     <connections>
-                        <action selector="clickImg:" destination="nNC-wE-eQ0" id="VRm-xg-aJO"/>
+                        <action selector="clickImage:" destination="nNC-wE-eQ0" id="tun-JH-vcM"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
