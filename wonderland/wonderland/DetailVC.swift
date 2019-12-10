@@ -19,6 +19,8 @@ class DetailVC: UIViewController {
     // 跳转到detail界面，赋值articleIndex
     var articleMeta: ArticleMeta?
     
+    let ArticlesURL = loadArticleURL()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
