@@ -69,7 +69,13 @@ class EditVC: UIViewController, UITextViewDelegate{
         // Pass the selected object to the new view controller.
         if let saveNoteVC = segue.destination as? SaveNoteVC{
             saveNoteVC.noteTitle = self.editTitle.text
-            saveNoteVC.noteContent = self.editContent.text
+            if(previewButton.title != "Preview"){
+                saveNoteVC.noteContent = self.content
+            }
+            else{
+                saveNoteVC.noteContent = self.editContent.text
+            }
+            
             // 默认abstract
             if((self.editContent.text != nil) && self.editContent.text!.count != 0){
                 // 获取第一段内容作为梗概的默认值
