@@ -151,4 +151,8 @@ class IndexTableViewController: UITableViewController {
         }
      }
     
+    @IBAction func exit(segue: UIStoryboardSegue){
+        
+    }
+    
 }
