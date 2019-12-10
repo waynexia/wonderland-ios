@@ -65,6 +65,8 @@ class SignupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        password.isSecureTextEntry = true
+        passwordConfirmed.isSecureTextEntry = true
 
         if let userListFromFile = loadUserList() {
             userList = userListFromFile

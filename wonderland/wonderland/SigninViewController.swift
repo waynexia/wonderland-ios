@@ -67,6 +67,7 @@ class SigninViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        password.isSecureTextEntry = true
         
         if let userListFromFile = loadUserList() {
             userList = userListFromFile
